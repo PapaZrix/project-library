@@ -1,0 +1,63 @@
+:root {
+    --btn-border-color: #bbb;
+    --btn-submit-color: rgb(0, 162, 255);
+    --btn-submit-hover: rgb(0, 118, 187);
+    --btn-delete-color: rgb(255, 0, 98);
+    --btn-delete-hover: rgb(190, 0, 73); 
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    padding-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--btn-border-color);
+}
+
+.check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#submit-button {
+    width: 120px;
+    padding: 10px 20px;
+    background-color: var(--btn-submit-color);
+    color: white;
+}
+
+#submit-button:hover {
+    background-color: var(--btn-submit-hover);
+}
+
+.table-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+tr {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+tr > th, td {
+    padding: 20px;
+    border-bottom: 1px solid var(--btn-border-color)
+}
