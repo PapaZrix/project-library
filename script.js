@@ -46,6 +46,55 @@ const library = (() => {
         }
     }
 
+    const inputNewBook = (e) => {
+        e.preventDefault();
+        const title = document.querySelector("#title").value;
+        const author = document.querySelector("#author").value;
+        const pages = document.querySelector("#pages").value;
+        const read = document.querySelector("#read-check").value;
+
+        myLibrary.push(new Book(title, author, pages, read));
+        displayBooks();
+    }
+
+    const handleClick = (e) => {
+        // targetBook returns the book title > targetBook = Book.title
+        const targetBook = e.target.parentNode.parentNode.childNodes[0].innerHTML;
+        
+        if (e.target.classList.contains("read-unread-btn")) {
+            changeReadStatus(findBookIndex(targetBook));
+            displayBooks();
+        }
+
+        if (e.target.classList.contains("delete-book-btn")) {
+            deleteBook(findBookIndex(targetBook));
+            displayBooks();
+        }
+    }
+
+    const findBookIndex = (title) => {
+        for (let book of myLibrary) {
+            if (book.title == title) {
+                return myLibrary.indexOf(book);
+            }
+        }
+    }
+
+    const changeReadStatus = (index) => {
+        if (myLibrary[index].read == false) {
+            myLibrary[index].read = true;
+        } else {
+            myLibrary[index].read = false;
+        }
+    }
+
+    const deleteBook = (index) => {
+        myLibrary.splice(index, 1);
+    }
+
+
+    bookList.addEventListener("click", handleClick);
+    form.addEventListener("submit", inputNewBook);
     addBookToLibrary("Deep Work", "Cal Newport", 290, false);
     addBookToLibrary("Atomic Habits", "James Clear", 350, true);
 })();
