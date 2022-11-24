@@ -1,3 +1,4 @@
+// Constructor
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -6,10 +7,12 @@ function Book(title, author, pages, read) {
 }
 
 const library = (() => {
+    // DOM elements and library array
     const myLibrary = [];
     const bookList = document.querySelector("#book-list");
-    const readButton = document.querySelector(".read-unread-btn");
     const form = document.querySelector(".form-container");
+
+    // Functions
 
     const addBookToLibrary = (title, author, pages, read) => {
         const newBook = new Book(title, author, pages, read);
@@ -18,12 +21,14 @@ const library = (() => {
     }
 
     const displayBooks = () => {
-
+        // Prevent double rendering of the same book
         bookList.innerHTML = "";
     
         for (let i = 0; i < myLibrary.length; i++) {
+            // Make a new row for each new book
             let newRow = bookList.insertRow(-1);
     
+            // Make a column for each row > title, author...
             let titleCell = newRow.insertCell(-1);
             titleCell.innerHTML = myLibrary[i].title;
     
@@ -32,6 +37,7 @@ const library = (() => {
     
             let pagesCell = newRow.insertCell(-1);
             pagesCell.innerHTML = myLibrary[i].pages
+            // Add the center class to pages property
             pagesCell.classList.add("center");
     
             let readCell = newRow.insertCell(-1);
@@ -46,11 +52,13 @@ const library = (() => {
         }
     }
 
+    // Function for handling form input and pushing it to library
     const inputNewBook = (e) => {
         e.preventDefault();
         const title = document.querySelector("#title").value;
         const author = document.querySelector("#author").value;
         const pages = document.querySelector("#pages").value;
+        // For the check input i need .checked instead of .value
         const read = document.querySelector("#read-check").checked;
 
         myLibrary.push(new Book(title, author, pages, read));
@@ -72,6 +80,7 @@ const library = (() => {
         }
     }
 
+    // Using the book title get it's index
     const findBookIndex = (title) => {
         for (let book of myLibrary) {
             if (book.title == title) {
@@ -92,9 +101,11 @@ const library = (() => {
         myLibrary.splice(index, 1);
     }
 
-
+    // Listeners
     bookList.addEventListener("click", handleClick);
     form.addEventListener("submit", inputNewBook);
+
+    // Calling initial stock books
     addBookToLibrary("Deep Work", "Cal Newport", 290, false);
     addBookToLibrary("Atomic Habits", "James Clear", 350, true);
 })();
