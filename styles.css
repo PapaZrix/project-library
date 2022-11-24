@@ -33,11 +33,17 @@ input {
     align-items: center;
 }
 
+#read-check {
+    cursor: pointer;
+}
+
 #submit-button {
+    padding: 0;
     width: 120px;
-    padding: 10px 20px;
+    height: 30px;
     background-color: var(--btn-submit-color);
     color: white;
+    cursor: pointer;
 }
 
 #submit-button:hover {
@@ -66,4 +72,31 @@ tr > th, td {
 
 .center {
     text-align: center;
+}
+
+.read-unread-btn {
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid var(--btn-border-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.read-unread-btn:hover {
+    background-color: lightcyan;
+}
+
+.delete-book-btn {
+    width: 100px;
+    height: 30px;
+    background-color: var(--btn-delete-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.delete-book-btn:hover {
+    background-color: var(--btn-delete-hover);
 }
