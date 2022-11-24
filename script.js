@@ -51,7 +51,7 @@ const library = (() => {
         const title = document.querySelector("#title").value;
         const author = document.querySelector("#author").value;
         const pages = document.querySelector("#pages").value;
-        const read = document.querySelector("#read-check").value;
+        const read = document.querySelector("#read-check").checked;
 
         myLibrary.push(new Book(title, author, pages, read));
         displayBooks();
