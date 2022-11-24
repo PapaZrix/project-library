@@ -52,6 +52,8 @@ input {
 }
 
 tr {
+    line-height: 2;
+    text-align: left;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(5, 1fr);
@@ -60,4 +62,8 @@ tr {
 tr > th, td {
     padding: 20px;
     border-bottom: 1px solid var(--btn-border-color)
+}
+
+.center {
+    text-align: center;
 }
